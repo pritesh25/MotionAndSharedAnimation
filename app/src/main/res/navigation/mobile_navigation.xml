@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/feedDetailFragment"
-        android:name="com.example.motionandsharedanimation.ui.dashboard.DashboardDetailFragment"
+        android:name="com.example.motionandsharedanimation.ui.dashboarddetail.DashboardDetailFragment"
         android:label="FeedDetailFragment" >
         <argument
             android:name="ImageUrl"

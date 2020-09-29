@@ -8,10 +8,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.motionandsharedanimation.R
-import com.example.motionandsharedanimation.ui.dashboard.DashboardDetailFragment.Companion.SHARED_IMAGE_VIEW
-import com.example.motionandsharedanimation.ui.dashboard.DashboardDetailFragment.Companion.SHARED_TEXT_VIEW
-import com.squareup.picasso.Picasso
+import com.example.motionandsharedanimation.ui.dashboarddetail.DashboardDetailFragment.Companion.SHARED_IMAGE_VIEW
+import com.example.motionandsharedanimation.ui.dashboarddetail.DashboardDetailFragment.Companion.SHARED_TEXT_VIEW
 
 class NotificationAdapter(private var list: ArrayList<NotificationData>, private val cxt: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -46,11 +46,10 @@ class NotificationAdapter(private var list: ArrayList<NotificationData>, private
 
             holder.ivImageNotification.apply {
                 transitionName = SHARED_IMAGE_VIEW
-                Picasso.get().load(R.drawable.ic_launcher_foreground).into(this)
+                this.load(R.drawable.ic_launcher_foreground)
             }
 
             holder.ivImageNotification.setOnClickListener {
-
                 it.findNavController().navigate(
                     NotificationsFragmentDirections.actionNavigationNotificationsToNotificationDetailFragment()
                 )

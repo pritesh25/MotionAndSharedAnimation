@@ -1,4 +1,4 @@
-package com.example.motionandsharedanimation.ui.dashboard
+package com.example.motionandsharedanimation.ui.dashboarddetail
 
 import android.content.Context
 import android.os.Bundle
@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.transition.TransitionInflater
+import coil.load
 import com.example.motionandsharedanimation.databinding.FeedFragmentBinding
-import com.example.motionandsharedanimation.ui.feed.FeedDetailFragmentArgs
-import com.squareup.picasso.Picasso
 
 class DashboardDetailFragment : Fragment() {
 
@@ -46,15 +45,13 @@ class DashboardDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
 
-            //Log.d(mTag, "SHARED_TEXT_VIEW  name = $SHARED_TEXT_VIEW")
-            //Log.d(mTag, "SHARED_IMAGE_VIEW name = $SHARED_IMAGE_VIEW")
+        arguments?.let {
 
             b.tvFeedDetailTitle.apply {
                 transitionName =
                     SHARED_TEXT_VIEW
-                text = FeedDetailFragmentArgs.fromBundle(
+                text = DashboardDetailFragmentArgs.fromBundle(
                     it
                 ).ImageTitle
             }
@@ -62,12 +59,8 @@ class DashboardDetailFragment : Fragment() {
             b.ivFeedDetailImage.apply {
                 transitionName =
                     SHARED_IMAGE_VIEW
-                Picasso.get().load(
-                    FeedDetailFragmentArgs.fromBundle(
-                        it
-                    ).ImageUrl).into(this)
+                this.load(DashboardDetailFragmentArgs.fromBundle(it).ImageUrl)
             }
-
         }
     }
 
