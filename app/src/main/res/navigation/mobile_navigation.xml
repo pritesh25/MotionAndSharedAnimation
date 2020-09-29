@@ -33,7 +33,7 @@
     <fragment
         android:id="@+id/feedDetailFragment"
         android:name="com.example.motionandsharedanimation.ui.dashboarddetail.DashboardDetailFragment"
-        android:label="FeedDetailFragment" >
+        android:label="Detail">
         <argument
             android:name="ImageUrl"
             app:argType="string" />
